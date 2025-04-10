@@ -1,3 +1,5 @@
+import React from "react";
+
 export function Textarea({ value, onChange, placeholder }) {
   return (
     <textarea
