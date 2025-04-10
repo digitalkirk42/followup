@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@/components": "workspace:*",
+    "recharts": "^2.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "recharts": "^2.6.2"
