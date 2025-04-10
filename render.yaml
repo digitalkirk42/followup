@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: followup-backend
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase: followup-db
+    repo: https://github.com/digitalkirk42/followup
+    branch: main
+    rootDir: backend
+
+  - type: web
+    name: followup-frontend
+    env: static
+    plan: free
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: dist
+    repo: https://github.com/digitalkirk42/followup
+    branch: main
+    rootDir: frontend
+
+databases:
+  - name: followup-db
