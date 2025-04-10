@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Card, CardContent } from "../components/ui/card";
-import { Input } from "../components/ui/input";
-import { Button } from "../components/ui/button";
-import { Textarea } from "../components/ui/textarea";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs";
-import { Table, TableHead, TableRow, TableHeaderCell, TableBody, TableCell } from "../components/ui/table";
+import { Card, CardContent } from "./components/ui/card";
+import { Input } from "./components/ui/input";
+import { Button } from "./components/ui/button";
+import { Textarea } from "./components/ui/textarea";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/ui/tabs";
+import { Table, TableHead, TableRow, TableHeaderCell, TableBody, TableCell } from "./components/ui/table";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 export default function SalesFollowUpDashboard() {
