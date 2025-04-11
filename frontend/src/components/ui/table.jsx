@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 export function Table({ children }) {
   return <table className="min-w-full table-auto border-collapse border border-gray-300">{children}</table>;
