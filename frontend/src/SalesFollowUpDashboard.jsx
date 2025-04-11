@@ -77,11 +77,19 @@ const handleChange = (value) => {
             {step < questions.length ? (
               <div className="space-y-4">
                 <p className="text-lg font-medium">{questions[step]}</p>
-                <Textarea
-                  placeholder="Type your response..."
-                  onChange={(e) => handleChange(e.target.value)}
-                />
-                <Button onClick={() => setStep(step + 1)}>Next</Button>
+               <Textarea
+  value={text}
+  placeholder="Type your response..."
+  onChange={(e) => handleChange(e.target.value)}
+/>
+               <Button
+  onClick={() => {
+    setStep(step + 1);
+    setText(""); // clear the textarea for next question
+  }}
+>
+  {step === questions.length - 1 ? "Submit" : "Next"}
+</Button>
               </div>
             ) : (
               <Button onClick={handleSubmit}>Generate Executive Summary</Button>
