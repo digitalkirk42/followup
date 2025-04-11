@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export function Tabs({ defaultValue, children, className }) {
   const [activeTab, setActiveTab] = useState(defaultValue);
