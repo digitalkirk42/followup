@@ -51,9 +51,10 @@ ${openFollowUp ? "Open to further engagement." : "Follow-up may not be welcomed.
     setResponses({});
   };
 
-  const handleChange = (value) => {
-    setResponses({ ...responses, [questions[step]]: value });
-  };
+const handleChange = (value) => {
+  setText(value);
+  setResponses({ ...responses, [questions[step]]: value });
+};
 
   const chartData = [
     { name: "Helpful Info", value: records.filter(r => r.helpful).length },
