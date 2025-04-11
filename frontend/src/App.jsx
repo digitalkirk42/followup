@@ -1,7 +1,5 @@
 import SalesFollowUpDashboard from "./SalesFollowUpDashboard";
 
-function App() {
+export default function App() {
   return <SalesFollowUpDashboard />;
 }
-
-export default App;
