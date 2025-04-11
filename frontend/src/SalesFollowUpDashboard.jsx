@@ -12,6 +12,7 @@ export default function SalesFollowUpDashboard() {
   const [responses, setResponses] = useState({});
   const [summary, setSummary] = useState("");
   const [records, setRecords] = useState([]);
+  const [text, setText] = useState("");
 
   const questions = [
     "Hi Doctor, just following up on your recent conversation with our sales rep. Did you find the information about the product helpful?",
@@ -48,13 +49,14 @@ ${openFollowUp ? "Open to further engagement." : "Follow-up may not be welcomed.
     setRecords([record, ...records]);
     setSummary(executiveSummary + "\n\n\nFull Transcript:\n\n" + fullTranscript);
     setStep(0);
+    setText("");
     setResponses({});
   };
 
-const handleChange = (value) => {
-  setText(value);
-  setResponses({ ...responses, [questions[step]]: value });
-};
+  const handleChange = (value) => {
+    setText(value);
+    setResponses({ ...responses, [questions[step]]: value });
+  };
 
   const chartData = [
     { name: "Helpful Info", value: records.filter(r => r.helpful).length },
@@ -77,23 +79,25 @@ const handleChange = (value) => {
             {step < questions.length ? (
               <div className="space-y-4">
                 <p className="text-lg font-medium">{questions[step]}</p>
-               <Textarea
-  value={text}
-  placeholder="Type your response..."
-  onChange={(e) => handleChange(e.target.value)}
-/>
-               <Button
-  onClick={() => {
-    setStep(step + 1);
-    setText(""); // clear the textarea for next question
-  }}
->
-  {step === questions.length - 1 ? "Submit" : "Next"}
-</Button>
+                <Textarea
+                  value={text}
+                  placeholder="Type your response..."
+                  onChange={(e) => handleChange(e.target.value)}
+                />
+                <Button
+                  onClick={() => {
+                    if (step === questions.length - 1) {
+                      handleSubmit();
+                    } else {
+                      setStep(step + 1);
+                      setText("");
+                    }
+                  }}
+                >
+                  {step === questions.length - 1 ? "Submit" : "Next"}
+                </Button>
               </div>
-            ) : (
-              <Button onClick={handleSubmit}>Generate Executive Summary</Button>
-            )}
+            ) : null}
             {summary && (
               <div className="mt-6">
                 <h2 className="text-xl font-bold mb-2">Summary</h2>
